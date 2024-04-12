@@ -16,12 +16,7 @@
     
 </head>
 <body>
-    <nav class="container">
-        <a href="/">Bookstore</a>
-        <a href="/authors">Authors</a>
-        <a href="/books">Books</a>
-    </nav>
-
+    @include('components.navbar')
     <?php echo $slot ?>
 </body>
 </html>
