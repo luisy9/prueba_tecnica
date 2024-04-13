@@ -21,4 +21,4 @@ Route::get('/', function () {
 });
 
 Route::get('/authors', AuthorController::class);
-Route::get('/books', [BookController::class, 'books']);
+Route::get('/books', BookController::class);
