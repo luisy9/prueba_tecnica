@@ -14,15 +14,15 @@ class BooksSeeder extends Seeder
     public function run(): void
     {
         Book::insert([
-            ['title' => "Harry Poter and the Philosopher's of Stone", "author_id" => "5"],
-            ['title' => 'Harry Poter and the Chamber of Secrets', "author_id" => "5"],
-            ['title' => 'Harry Potter and the Prisoner of Azkaban', "author_id" => "5"],
-            ['title'=> 'Harry Potter and the Goblet of Fire', "author_id" => "5"],
-            ['title'=> 'Harry Potter and the Order of the Phoenix', "author_id" => "5"],
-            ['title'=> 'Harry Potter and the Half-Blood Prince', "author_id" => "5"],
-            ['title'=> 'Harry Potter and the Deathly Hallows', "author_id" => "5"],
-            ['title'=> 'Atomic Habits', "author_id" => "6"],
-            ['title'=> 'Deep Work', "author_id" => "7"],
+            ["author_id" => 5,'title' => "Harry Poter and the Philosopher's of Stone"],
+            ['title' => 'Harry Poter and the Chamber of Secrets', "author_id" => 4],
+            ['title' => 'Harry Potter and the Prisoner of Azkaban', "author_id" => 4],
+            ['title'=> 'Harry Potter and the Goblet of Fire', "author_id" => 4],
+            ['title'=> 'Harry Potter and the Order of the Phoenix', "author_id" => 4],
+            ['title'=> 'Harry Potter and the Half-Blood Prince', "author_id" => 4],
+            ['title'=> 'Harry Potter and the Deathly Hallows', "author_id" => 4],
+            ['title'=> 'Atomic Habits', "author_id" => 5],
+            ['title'=> 'Deep Work', "author_id" => 6],
         ]);
     }
 }
