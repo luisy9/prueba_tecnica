@@ -30,12 +30,15 @@ Route::get('/authors/create', function () {
     return view('authors.create', compact('data'));
 });
 
-
+//Rutas authores
 Route::get('/authors/{id}/edit', [AuthorController::class,'showid'])->name('edit');
 Route::put('/authors/{id}', [AuthorController::class, 'edit'])->name('authors.update');
 Route::post('/authors/create', [AuthorController::class, 'create'])->name('author.create');
-
 Route::delete('/authors/{id}', [AuthorController::class, 'delete'])->name('authors.delete');
+
+//Rutas books
+Route::get('/books/create', [BookController::class, 'showAuthorsName'])->name('books.authors');
+Route::post('/books/create', [BookController::class, 'create'])->name('books.create');
 
 Route::get('/authors', AuthorController::class)->name('authors');
 Route::get('/books', BookController::class);
