@@ -33,9 +33,9 @@ Route::get('/authors/create', function () {
 
 Route::get('/authors/{id}/edit', [AuthorController::class,'showid'])->name('edit');
 Route::put('/authors/{id}', [AuthorController::class, 'edit'])->name('authors.update');
+Route::post('/authors/create', [AuthorController::class, 'create'])->name('author.create');
+
+Route::delete('/authors/{id}', [AuthorController::class, 'delete'])->name('authors.delete');
 
 Route::get('/authors', AuthorController::class)->name('authors');
 Route::get('/books', BookController::class);
-
-Route::post('/authors/create', [AuthorController::class, 'create'])->name('author.create');
-

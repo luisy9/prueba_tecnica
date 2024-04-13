@@ -42,20 +42,32 @@ class AuthorController extends Controller
 
     public function edit(Request $request, $id)
     {
-        
+
         try {
             $validarData = $request->validate([
                 'name' => 'required|string|max:255',
             ]);
+
             $author = Author::findOrFail($id);
             /*Actualizamos unicamente el campo de name, para tener un mayor control sobre los campos
             y no actualizar campos innecesarios */
             $author->name = $request->input('name');
             $author->save();
-            return redirect()->route('edit', $id)->with('success', 'Author edit successfuly');
+            return redirect()->route('authors')->with('success', 'Author deleted successfully');
 
         } catch (\Exception $e) {
             return redirect()->route('edit', $id)->with('error', 'Cannot update the author');
+        }
+    }
+
+    public function delete(Request $request, $id)
+    {
+        try {
+            $author = Author::findOrFail($id);
+            $author->delete();
+            return redirect()->route('authors')->with('success', 'Successfuly deleted Author!');
+        } catch (\Exception $e) {
+            return redirect()->route('authors')->with('error', 'Cannot delete the author');
         }
     }
 }
