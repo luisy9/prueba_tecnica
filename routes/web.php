@@ -22,3 +22,6 @@ Route::get('/', function () {
 
 Route::get('/authors', AuthorController::class);
 Route::get('/books', BookController::class);
+
+Route::get('/books/create', [BookController::class, 'create']);
+Route::get('/authors/create', [AuthorController::class, 'create']);
