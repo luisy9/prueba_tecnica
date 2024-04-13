@@ -13,13 +13,13 @@ class AuthorsSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('authors')->insert(
+        DB::table('authors')->insert([
             ['name' => 'John Doe'],
             ['name' => 'Jane Smith'],
             ['name' => 'Alice Johnson'],
             ['name'=> 'J.K. Rowling'],
             ['name'=> 'James Clear'],
             ['name'=> 'Cal Newport'],
-        );
+        ]);
     }
 }
