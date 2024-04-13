@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Author;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class AuthorsSeeder extends Seeder
 {
@@ -13,7 +13,7 @@ class AuthorsSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('authors')->insert([
+        Author::insert([
             ['name' => 'John Doe'],
             ['name' => 'Jane Smith'],
             ['name' => 'Alice Johnson'],
