@@ -20,7 +20,7 @@
                             @if($a != 'id' && $a != 'name' && $a != 'created_at')
                                 <td class="">
                                     
-                                        <a class="bg-primary border border-0 rounded px-3 py-2 text-white text-decoration-none">Edit</a>
+                                        <a class="bg-primary border border-0 rounded px-3 py-2 text-white text-decoration-none" href="/authors/{{$author->id}}/edit">Edit</a>
                                         <a class="bg-danger border border-0 rounded px-3 py-2 text-white text-decoration-none">Delete</a>
                                 </td>
                             @elseif($a === 'id' || $a === 'name')

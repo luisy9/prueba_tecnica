@@ -30,7 +30,12 @@ Route::get('/authors/create', function () {
     return view('authors.create', compact('data'));
 });
 
-Route::get('/authors', AuthorController::class);
+
+Route::get('/authors/{id}/edit', [AuthorController::class,'showid'])->name('edit');
+Route::put('/authors/{id}', [AuthorController::class, 'edit'])->name('authors.update');
+
+Route::get('/authors', AuthorController::class)->name('authors');
 Route::get('/books', BookController::class);
 
 Route::post('/authors/create', [AuthorController::class, 'create'])->name('author.create');
+

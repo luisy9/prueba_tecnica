@@ -32,4 +32,30 @@ class AuthorController extends Controller
         }
 
     }
+
+    public function showid(Request $request)
+    {
+        $id = $request->id;
+        $author = Author::findOrFail($id);
+        return view('authors.edit', compact('author'));
+    }
+
+    public function edit(Request $request, $id)
+    {
+        
+        try {
+            $validarData = $request->validate([
+                'name' => 'required|string|max:255',
+            ]);
+            $author = Author::findOrFail($id);
+            /*Actualizamos unicamente el campo de name, para tener un mayor control sobre los campos
+            y no actualizar campos innecesarios */
+            $author->name = $request->input('name');
+            $author->save();
+            return redirect()->route('edit', $id)->with('success', 'Author edit successfuly');
+
+        } catch (\Exception $e) {
+            return redirect()->route('edit', $id)->with('error', 'Cannot update the author');
+        }
+    }
 }
