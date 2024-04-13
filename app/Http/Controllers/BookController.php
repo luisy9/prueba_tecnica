@@ -14,4 +14,7 @@ class BookController extends Controller
         $books = Book::with('author')->get();
         return view("books", compact("data", "books"));
     }
+
+
+  
 }

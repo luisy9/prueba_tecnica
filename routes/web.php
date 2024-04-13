@@ -20,8 +20,17 @@ Route::get('/', function () {
     return view('home', compact('data'));
 });
 
+Route::get('/books/create', function () {
+    $data = 'create';
+    return view('books.create', compact('data'));
+});
+
+Route::get('/authors/create', function () {
+    $data = 'create';
+    return view('authors.create', compact('data'));
+});
+
 Route::get('/authors', AuthorController::class);
 Route::get('/books', BookController::class);
 
-Route::get('/books/create', [BookController::class, 'create']);
-Route::get('/authors/create', [AuthorController::class, 'create']);
+Route::post('/authors/create', [AuthorController::class, 'create'])->name('author.create');

@@ -1,7 +1,7 @@
 <x-layout>
     <div class="container">
         <h1>{{ $data }}</h1>
-        <button class="bg-primary border border-0 rounded px-3 py-2 text-white">Create</button>
+        <a href="/books/create" class="bg-primary border border-0 rounded px-3 py-2 text-white text-decoration-none">Create</a>
 
         @php
             $thead = ['#', 'Title', 'Author', 'Action'];
@@ -20,8 +20,8 @@
                         @foreach($book->getAttributes() as $a => $name)
                             @if($a != 'id' && $a != 'title' && $a != 'created_at' && $a != 'author_id')
                                 <td class="">
-                                    <button class="bg-primary border border-0 rounded px-3 py-2 text-white">Edit</button>
-                                    <button class="bg-danger border border-0 rounded px-3 py-2 text-white">Delete</button>
+                                    <a href="/books/edit" class="bg-primary border border-0 rounded px-3 py-2 text-white text-decoration-none">Edit</a>
+                                    <a class="bg-danger border border-0 rounded px-3 py-2 text-white text-decoration-none">Delete</a>
                                 </td>
                             @elseif($a === 'id' || $a === 'title')
                                 <td>

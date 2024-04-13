@@ -14,4 +14,22 @@ class AuthorController extends Controller
         $authors = Author::all();
         return view("authors", compact("data", "authors"));
     }
+
+    public function create(Request $request)
+    {
+        try {
+            $validarData = $request->validate([
+                'name' => 'required|string|max:255',
+            ]);
+
+            $author = Author::create([
+                'name' => $validarData['name'],
+            ]);
+
+            return redirect()->route('author.create')->with('success', 'Author created successfully!');
+        } catch (\Exception $e) {
+            return redirect()->route('author.create')->with('error', 'Author is required.');
+        }
+
+    }
 }

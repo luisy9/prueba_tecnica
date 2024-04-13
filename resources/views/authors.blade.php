@@ -1,7 +1,7 @@
 <x-layout>
     <div class="container">
         <h1>{{ $data }}</h1>
-
+        <a href="/authors/create" class="bg-primary border border-0 rounded px-3 py-2 text-white text-decoration-none">Create</a>
         @php
             $thead = ['#', 'Name', 'Action'];
         @endphp
@@ -20,8 +20,8 @@
                             @if($a != 'id' && $a != 'name' && $a != 'created_at')
                                 <td class="">
                                     
-                                <button class="bg-primary border border-0 rounded px-3 py-2 text-white">Edit</button>
-                                        <button class="bg-danger border border-0 rounded px-3 py-2 text-white">Delete</button>
+                                        <a class="bg-primary border border-0 rounded px-3 py-2 text-white text-decoration-none">Edit</a>
+                                        <a class="bg-danger border border-0 rounded px-3 py-2 text-white text-decoration-none">Delete</a>
                                 </td>
                             @elseif($a === 'id' || $a === 'name')
                                 <td>
