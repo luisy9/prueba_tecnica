@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,32 +20,5 @@ Route::get('/', function () {
     return view('home', compact('data'));
 });
 
-Route::get('/authors', function () {
-    $data = 'authors';
-    return view('authors', compact('data'));
-});
-
-Route::get('/books', function () {
-    $data = 'books';
-    return view('books', compact('data'));
-});
-
-// Route::get('/authors', function() {
-//     return view('authors');
-// });
-
-// Route::get('/books', function() {
-//     return view('books');
-// });
-
-// Route::get('/', function() {
-//     return view('');
-// });
-
-// Route::get('/', function() {
-//     return view('');
-// });
-
-// Route::get('/', function() {
-//     return view('');
-// });
+Route::get('/authors', AuthorController::class);
+Route::get('/books', [BookController::class, 'books']);
