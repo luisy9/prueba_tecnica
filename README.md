@@ -1,5 +1,9 @@
 # How to run project
 - php artisan serve -> arrancar laravel
+- php artisan migrate -> insertar tablas con relaciones en mysql
+- php artisan db:seed --class=AuthorSeeder -> ejecutar seeder Authors
+- php artisan db:seed --class=BooksSeeder -> ejecutar seeder Books
+
 
 
 ## Cosas a destacar
