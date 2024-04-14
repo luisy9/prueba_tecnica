@@ -22,7 +22,11 @@
                             @if($a != 'id' && $a != 'title' && $a != 'created_at' && $a != 'author_id')
                                 <td class="">
                                     <a href="{{route('books.edit', $book->id)}}" class="bg-primary border border-0 rounded px-3 py-2 text-white text-decoration-none">Edit</a>
-                                    <a class="bg-danger border border-0 rounded px-3 py-2 text-white text-decoration-none">Delete</a>
+                                    <form action="{{ route('books.delete', $book->id) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="bg-danger border border-0 rounded px-3 py-2 text-white text-decoration-none">Delete</button>
+                                    </form>
                                 </td>
                             @elseif($a === 'id' || $a === 'title')
                                 <td>
