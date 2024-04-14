@@ -4,12 +4,12 @@
         <a href="/books/create" class="bg-primary border border-0 rounded px-3 py-2 text-white text-decoration-none">Create</a>
 
         @php
-            $thead = ['#', 'Title', 'Author', 'Action'];
+            $thead = ['#', 'Title', 'Name', 'Action'];
         @endphp
         <table class="table">
             <thead>
                 <tr>
-                    @foreach($thead as $key)
+                    @foreach(__('books') as $key)
                         <th>{{$key}}</th>
                     @endforeach
                 </tr>

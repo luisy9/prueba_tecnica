@@ -11,5 +11,16 @@
                     <li class="nav-item "><a class="nav-link active" href="/books">Books</a></li>
                 </ul>
             </div>
+            <div class="">
+                <ul>
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li>
+                            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                {{ $properties['native'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
 </nav>
