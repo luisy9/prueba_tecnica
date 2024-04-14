@@ -1,4 +1,5 @@
 # How to run project
+- composer install -> instalar dependecias de composer
 - php artisan serve -> arrancar laravel
 - php artisan migrate -> insertar tablas con relaciones en mysql
 - php artisan db:seed --class=AuthorSeeder -> ejecutar seeder Authors
