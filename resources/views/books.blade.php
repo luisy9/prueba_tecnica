@@ -20,7 +20,7 @@
                     <tr class="">
                         @foreach($book->getAttributes() as $a => $name)
                             @if($a != 'id' && $a != 'title' && $a != 'created_at' && $a != 'author_id')
-                                <td class="">
+                                <td class="d-flex gap-2">
                                     <a href="{{route('books.edit', $book->id)}}" class="bg-primary border border-0 rounded px-3 py-2 text-white text-decoration-none">Edit</a>
                                     <form action="{{ route('books.delete', $book->id) }}" method="POST">
                                         @method('DELETE')
