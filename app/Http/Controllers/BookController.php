@@ -39,8 +39,8 @@ class BookController extends Controller
                 return redirect()->route('books.create')->with('success', 'Book created successfully!');
             } catch(\Exception $e) {
                 return redirect()->route('books.create')->with([
-                    'error1'=> 'The title camp is required',
-                    'error2'=> 'The select camp is required',
+                    'error1'=> __('validacionesBook.isRequired'),
+                    'error2'=> __('validacionesBook.authorSelect'),
                 ]);
             }
 

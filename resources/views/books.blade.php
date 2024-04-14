@@ -1,15 +1,16 @@
 <x-layout>
     <div class="container">
-        <h1>{{ $data }}</h1>
-        <a href="/books/create" class="bg-primary border border-0 rounded px-3 py-2 text-white text-decoration-none">Create</a>
-
+        <h1 class="py-3">{{ __('books.books') }}</h1>
+            <div class="mb-2">
+                <a href="/books/create" class="bg-primary border border-0 rounded px-3 py-2 text-white text-decoration-none">Create</a>
+            </div>
         @php
             $thead = ['#', 'Title', 'Name', 'Action'];
         @endphp
         <table class="table">
             <thead>
                 <tr>
-                    @foreach(__('books') as $key)
+                    @foreach(__('theadBooks') as $key)
                         <th>{{$key}}</th>
                     @endforeach
                 </tr>
