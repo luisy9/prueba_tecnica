@@ -36,6 +36,7 @@ class BookController extends Controller
                 'title' => $validarData['title'],
                 'author_id' => $validarData['author_name'],
             ]);
+
             return redirect()->route('books.create')->with('success', 'Book created successfully!');
         } catch (\Exception $e) {
             return redirect()->route('books.create')->with([
@@ -50,13 +51,29 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id); // Donde $id es el ID del libro que deseas obtener
         $title = $book->title;
+        $id = $book->id;
         $authorName = $book->author->name;
 
         /* Hacemos una consulta para recoger todos los autores menos el del libro actual
             para que no se repita el nombre
         */
         $allAuthors = Author::whereNotIn('name', [$authorName])->get();
-        return view('books.edit', compact('title','authorName','allAuthors'));
+        return view('books.edit', compact('id', 'title', 'authorName', 'allAuthors'));
+    }
+
+    public function edit(Request $request, $id)
+    {
+        try{
+            $book = Book::findOrFail($id);
+            $book->title = $request->input('title');
+            $book->author_id = $request->input('author_name');
+            $book->save();
+            return redirect()->route('books')->with('success', 'Book edited successfully');
+
+        }catch (\Exception $e) {
+            return redirect()->route('books.edit', $id)->with('error', 'Cannot update the author');
+        }
+
     }
 
 }

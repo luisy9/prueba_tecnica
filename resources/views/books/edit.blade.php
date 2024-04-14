@@ -6,8 +6,9 @@
         {{ session('success') }}
     </div>
 @endif
-        <form method="POST" action="{{ route('books.create') }}" class="needs-validation container">
+        <form method="POST" action="{{ route('books.update', $id) }}" class="needs-validation container">
             @csrf
+            @method('PUT')
             <div class="container has-validation row gap-5">
                 <div class="form-group">
                     <label for="inputName" class="form-label">
