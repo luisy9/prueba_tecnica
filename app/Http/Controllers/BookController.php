@@ -54,10 +54,7 @@ class BookController extends Controller
         $id = $book->id;
         $authorName = $book->author->name;
 
-        /* Hacemos una consulta para recoger todos los autores menos el del libro actual
-            para que no se repita el nombre
-        */
-        $allAuthors = Author::whereNotIn('name', [$authorName])->get();
+        $allAuthors = Author::all();
         return view('books.edit', compact('id', 'title', 'authorName', 'allAuthors'));
     }
 
