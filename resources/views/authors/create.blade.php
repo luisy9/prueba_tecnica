@@ -1,13 +1,13 @@
 <x-layout>
-    <div class="container">
-        <h1 class="">Add new Author</h1>
-        
+    <div class="container-fluid">
+        <div class="container">
+            <h1 class="fw-light pt-5 text-center">Add new Author</h1>
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
 
-        @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
         <form method="POST" action="{{ route('author.create') }}" class="needs-validation">
             @csrf
             <div class="container has-validation">
@@ -22,5 +22,13 @@
                 <button class="bg-primary px-4 py-2 text-white border border-0 rounded my-2" type="submit">Submit</button>
             </div>
         </form>
+        </div>
     </div>
 </x-layout>
+
+<style>
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+</style>

@@ -40,6 +40,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
     //Rutas books
     Route::get('/books/create', [BookController::class, 'showAuthorsName'])->name('books.authors');
     Route::post('/books/create', [BookController::class, 'create'])->name('books.create');
+    Route::get('/books/{id}/edit', [BookController::class, 'showItemsBook'])->name('books.edit');
     
     Route::get('/authors', AuthorController::class)->name('authors');
     Route::get('/books', BookController::class);

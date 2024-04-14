@@ -24,26 +24,39 @@ class BookController extends Controller
     }
 
 
-        public function create(Request $request)
-        {
-            try {
-                $validarData = $request->validate([
-                    'title' => 'required|string|max:255',
-                    'author_name' => 'required|string|max:255',
-                ]);
+    public function create(Request $request)
+    {
+        try {
+            $validarData = $request->validate([
+                'title' => 'required|string|max:255',
+                'author_name' => 'required|string|max:255',
+            ]);
 
-                $book = Book::create([
-                    'title' => $validarData['title'],
-                    'author_id' => $validarData['author_name'],
-                ]);
-                return redirect()->route('books.create')->with('success', 'Book created successfully!');
-            } catch(\Exception $e) {
-                return redirect()->route('books.create')->with([
-                    'error1'=> __('validacionesBook.isRequired'),
-                    'error2'=> __('validacionesBook.authorSelect'),
-                ]);
-            }
-
+            $book = Book::create([
+                'title' => $validarData['title'],
+                'author_id' => $validarData['author_name'],
+            ]);
+            return redirect()->route('books.create')->with('success', 'Book created successfully!');
+        } catch (\Exception $e) {
+            return redirect()->route('books.create')->with([
+                'error1' => __('validacionesBook.isRequired'),
+                'error2' => __('validacionesBook.authorSelect'),
+            ]);
         }
+
+    }
+
+    public function showItemsBook(Request $request, $id)
+    {
+        $book = Book::findOrFail($id); // Donde $id es el ID del libro que deseas obtener
+        $title = $book->title;
+        $authorName = $book->author->name;
+
+        /* Hacemos una consulta para recoger todos los autores menos el del libro actual
+            para que no se repita el nombre
+        */
+        $allAuthors = Author::whereNotIn('name', [$authorName])->get();
+        return view('books.edit', compact('title','authorName','allAuthors'));
+    }
 
 }
